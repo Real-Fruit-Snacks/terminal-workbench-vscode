@@ -1,0 +1,7 @@
+build/
+test/
+docs/
+THEME-SPEC.md
+.gitignore
+*.vsix
+.superpowers/
