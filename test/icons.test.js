@@ -5,6 +5,8 @@ const assert = require('node:assert/strict');
 const { extensionChips, fileNameChips, chipDefs, iconSvgs, iconManifest, chipTextAttrs } = require('../build/icons');
 const { dark, light } = require('../build/tokens');
 const { alpha } = require('../build/lib/color');
+const fs = require('node:fs');
+const path = require('node:path');
 
 test('chip table is well-formed', () => {
   for (const e of [...extensionChips, ...fileNameChips]) {
@@ -72,4 +74,30 @@ test('manifest maps every table entry and lights every mapping', () => {
   assert.equal(m.folderExpanded, '_folder-open');
   assert.equal(m.file, '_file');
   assert.equal(m.hidesExplorerArrows, false);
+});
+
+test('generated icons and manifest are in sync with the builder', () => {
+  const iconDir = path.join(__dirname, '..', 'icons');
+  for (const t of [dark, light]) {
+    const suffix = t.type === 'dark' ? '' : '-light';
+    for (const [name, svg] of Object.entries(iconSvgs(t))) {
+      const p = path.join(iconDir, `${name}${suffix}.svg`);
+      assert.ok(fs.existsSync(p), `${name}${suffix}.svg missing — run: node build/build.js`);
+      assert.equal(fs.readFileSync(p, 'utf8'), svg);
+    }
+  }
+  const onDisk = fs.readdirSync(iconDir).filter((f) => f.endsWith('.svg'));
+  assert.equal(onDisk.length, Object.keys(iconSvgs(dark)).length * 2, 'stale files in icons/');
+  const manifestPath = path.join(__dirname, '..', 'themes', 'terminal-workbench-file-icons.json');
+  assert.deepEqual(JSON.parse(fs.readFileSync(manifestPath, 'utf8')), JSON.parse(JSON.stringify(iconManifest())));
+});
+
+test('package.json contributes the icon theme at an existing path', () => {
+  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+  const it = pkg.contributes.iconThemes;
+  assert.equal(it.length, 1);
+  assert.equal(it[0].id, 'terminal-workbench-icons');
+  assert.equal(it[0].label, 'Terminal Workbench Icons');
+  assert.ok(fs.existsSync(path.join(__dirname, '..', it[0].path)));
+  assert.equal(pkg.version, '0.2.0');
 });

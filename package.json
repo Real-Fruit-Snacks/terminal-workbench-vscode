@@ -2,7 +2,7 @@
   "name": "terminal-workbench",
   "displayName": "Terminal Workbench",
   "description": "A calm, dense, high-contrast theme for people who live in panes, shells, logs, and code. Graphite surfaces, restrained ANSI-style accents, dark and light.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "real-fruit-snacks",
   "license": "MIT",
   "engines": {
@@ -33,6 +33,13 @@
         "label": "Terminal Workbench Light",
         "uiTheme": "vs",
         "path": "./themes/terminal-workbench-light-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "terminal-workbench-icons",
+        "label": "Terminal Workbench Icons",
+        "path": "./themes/terminal-workbench-file-icons.json"
       }
     ]
   },
