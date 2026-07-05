@@ -31,6 +31,14 @@ The theme controls color only. For the full Terminal Workbench feel, pair it wit
       "workbench.colorTheme": "Terminal Workbench"
     }
 
+## Icons
+
+The extension also ships Terminal Workbench Icons, a matching file icon theme: file types render as small uppercase type chips in the theme's tag style, and folders stay quiet monoline glyphs (the open folder carries the accent). Enable it alongside either color theme:
+
+    {
+      "workbench.iconTheme": "terminal-workbench-icons"
+    }
+
 ## Development
 
 The token tables live once in `build/tokens.js`; both theme JSONs are generated from them:
