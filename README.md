@@ -11,7 +11,7 @@ Port of the [Terminal Workbench Obsidian theme](https://github.com/Real-Fruit-Sn
 
 From a `.vsix`:
 
-1. Build or download `terminal-workbench-0.1.0.vsix`
+1. Build or download the latest `terminal-workbench-<version>.vsix`
 2. In VS Code: Extensions panel → `…` menu → **Install from VSIX…**
 
 Or from source:
@@ -19,7 +19,7 @@ Or from source:
     git clone https://github.com/Real-Fruit-Snacks/terminal-workbench-vscode
     cd terminal-workbench-vscode
     npx --yes @vscode/vsce package --no-dependencies
-    code --install-extension terminal-workbench-0.1.0.vsix
+    code --install-extension terminal-workbench-0.2.0.vsix
 
 ## Recommended settings
 
@@ -41,12 +41,12 @@ The extension also ships Terminal Workbench Icons, a matching file icon theme: f
 
 ## Development
 
-The token tables live once in `build/tokens.js`; both theme JSONs are generated from them:
+The token tables live once in `build/tokens.js`; both color themes and the file icon set are generated from them:
 
-    node build/build.js   # regenerates themes/ and prints a WCAG contrast report
+    node build/build.js   # regenerates themes/ and icons/ and prints a WCAG contrast report
     node --test           # test suite
 
-Design system: see [THEME-SPEC.md](THEME-SPEC.md). Never edit `themes/*.json` by hand — change tokens or mappings and rebuild.
+Design system: see [THEME-SPEC.md](THEME-SPEC.md). Never edit `themes/*.json` or `icons/*.svg` by hand — change tokens or mappings and rebuild.
 
 ## License
 

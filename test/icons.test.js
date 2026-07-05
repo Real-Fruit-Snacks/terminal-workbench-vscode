@@ -90,6 +90,11 @@ test('generated icons and manifest are in sync with the builder', () => {
   assert.equal(onDisk.length, Object.keys(iconSvgs(dark)).length * 2, 'stale files in icons/');
   const manifestPath = path.join(__dirname, '..', 'themes', 'terminal-workbench-file-icons.json');
   assert.deepEqual(JSON.parse(fs.readFileSync(manifestPath, 'utf8')), JSON.parse(JSON.stringify(iconManifest())));
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const themesDir = path.dirname(manifestPath);
+  for (const def of Object.values(manifest.iconDefinitions)) {
+    assert.ok(fs.existsSync(path.resolve(themesDir, def.iconPath)), `unresolvable iconPath ${def.iconPath}`);
+  }
 });
 
 test('package.json contributes the icon theme at an existing path', () => {

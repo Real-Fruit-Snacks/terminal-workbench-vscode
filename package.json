@@ -16,7 +16,9 @@
     "dark",
     "light",
     "terminal",
-    "graphite"
+    "graphite",
+    "icon-theme",
+    "file-icons"
   ],
   "repository": {
     "type": "git",
