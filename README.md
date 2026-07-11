@@ -1,11 +1,30 @@
-# Terminal Workbench for VS Code
+<div align="center">
 
-A calm, dense, high-contrast theme for people who live in panes, shells, logs, and code — not retro green-on-black novelty. Graphite surfaces, restrained ANSI-style accents, and chrome that stays quiet so the signal (syntax, links, active elements) carries the color.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Real-Fruit-Snacks/terminal-workbench-vscode/main/docs/assets/cover-dark.svg" />
+  <img alt="Terminal Workbench" src="https://raw.githubusercontent.com/Real-Fruit-Snacks/terminal-workbench-vscode/main/docs/assets/cover-light.svg" width="820" />
+</picture>
 
-Port of the [Terminal Workbench Obsidian theme](https://github.com/Real-Fruit-Snacks/terminal-workbench). Ships two variants:
+<br/>
 
-- **Terminal Workbench** (dark)
-- **Terminal Workbench Light**
+A calm, dense, high-contrast theme for people who live in panes, shells, logs, and code.
+
+<br/>
+
+[![CI](https://github.com/Real-Fruit-Snacks/terminal-workbench-vscode/actions/workflows/ci.yml/badge.svg)](https://github.com/Real-Fruit-Snacks/terminal-workbench-vscode/actions/workflows/ci.yml)
+&nbsp;[![License: MIT](https://img.shields.io/badge/License-MIT-f0c674?style=flat-square)](LICENSE)
+&nbsp;[![Release](https://img.shields.io/github/v/release/Real-Fruit-Snacks/terminal-workbench-vscode?style=flat-square&color=6bdcff&label=release)](https://github.com/Real-Fruit-Snacks/terminal-workbench-vscode/releases)
+&nbsp;![VS Code](https://img.shields.io/badge/VS%20Code-1.85%2B-63f2ab?style=flat-square)
+
+[Website](https://real-fruit-snacks.github.io/terminal-workbench-vscode/) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/Real-Fruit-Snacks/terminal-workbench-vscode/issues)
+
+</div>
+
+---
+
+## Overview
+
+Port of the [Terminal Workbench Obsidian theme](https://github.com/Real-Fruit-Snacks/terminal-workbench). Graphite surfaces, restrained ANSI-style accents, and chrome that stays quiet so the signal (syntax, links, active elements) carries the color. Ships two color themes — Terminal Workbench (dark) and Terminal Workbench Light — plus Terminal Workbench Icons, a matching file icon theme.
 
 ## Install
 

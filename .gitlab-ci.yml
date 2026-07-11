@@ -1,0 +1,28 @@
+image: node:20
+
+stages: [test, build, deploy]
+
+test:
+  stage: test
+  script:
+    - node --test
+
+build:
+  stage: build
+  script:
+    - node build/build.js
+    - git diff --exit-code
+    - npx --yes @vscode/vsce package --no-dependencies
+  artifacts:
+    paths:
+      - "*.vsix"
+
+pages:
+  stage: deploy
+  script:
+    - cp -r docs public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
