@@ -1,6 +1,8 @@
 build/
 test/
 docs/
+.github/
+.gitlab-ci.yml
 THEME-SPEC.md
 .gitignore
 *.vsix

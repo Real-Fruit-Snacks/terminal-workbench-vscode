@@ -8,6 +8,7 @@ const { tokenColors, semanticTokenColors } = require('./syntax');
 const { terminalColors } = require('./terminal');
 const { contrast, luminance } = require('./lib/color');
 const { iconSvgs, iconManifest } = require('./icons');
+const { coverSvg } = require('./cover');
 
 function buildTheme(t) {
   const isDark = t.type === 'dark';
@@ -97,6 +98,12 @@ function main() {
     JSON.stringify(iconManifest(), null, 2) + '\n'
   );
   console.log(`\nWrote ${Object.keys(iconSvgs(dark)).length * 2} icons + themes/terminal-workbench-file-icons.json`);
+
+  const assetDir = path.join(__dirname, '..', 'docs', 'assets');
+  fs.mkdirSync(assetDir, { recursive: true });
+  fs.writeFileSync(path.join(assetDir, 'cover-dark.svg'), coverSvg(dark));
+  fs.writeFileSync(path.join(assetDir, 'cover-light.svg'), coverSvg(light));
+  console.log('Wrote docs/assets/cover-dark.svg + cover-light.svg');
 
   if (failed) {
     console.error('\nBody-text contrast below WCAG AA — fix before shipping.');
