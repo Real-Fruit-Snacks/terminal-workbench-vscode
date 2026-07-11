@@ -7,3 +7,5 @@ THEME-SPEC.md
 .gitignore
 *.vsix
 .superpowers/
+README.md
+.gitattributes

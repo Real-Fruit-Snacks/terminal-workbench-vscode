@@ -12,7 +12,8 @@ build:
   script:
     - node build/build.js
     - git diff --exit-code
-    - npx --yes @vscode/vsce package --no-dependencies
+    - test -z "$(git status --porcelain)"
+    - npx --yes @vscode/vsce package --no-dependencies --readme-path build/vsix-readme.md
   artifacts:
     paths:
       - "*.vsix"

@@ -1,11 +1,5 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Real-Fruit-Snacks/terminal-workbench-vscode/main/docs/assets/cover-dark.svg" />
-  <img alt="Terminal Workbench" src="https://raw.githubusercontent.com/Real-Fruit-Snacks/terminal-workbench-vscode/main/docs/assets/cover-light.svg" width="820" />
-</picture>
-
-<br/>
 
 A calm, dense, high-contrast theme for people who live in panes, shells, logs, and code.
 
